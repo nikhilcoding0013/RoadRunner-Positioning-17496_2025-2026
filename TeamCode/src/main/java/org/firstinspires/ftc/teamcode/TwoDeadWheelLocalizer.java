@@ -27,10 +27,10 @@ public final class TwoDeadWheelLocalizer implements Localizer {
 
     public static class Params {
         /** forward/back offset of parallel wheel (ticks) */
-        public double forwardOffsetTicks = 0.0;
+        public double forwardOffsetTicks = -7670;
 
         /** left/right offset of perpendicular wheel (ticks) */
-        public double lateralOffsetTicks = 0.0;
+        public double lateralOffsetTicks = -3175;
     }
 
     public static Params PARAMS = new Params();
