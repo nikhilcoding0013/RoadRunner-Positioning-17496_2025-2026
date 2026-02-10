@@ -82,6 +82,11 @@ public final class TwoDeadWheelLocalizer implements Localizer {
         return new Vector2d(d.position.x, d.position.y);
     }
 
+    public void setOffsets(double forwardInches, double lateralInches) {
+        PARAMS.forwardOffsetTicks = forwardInches / inPerTick;
+        PARAMS.lateralOffsetTicks = lateralInches / inPerTick;
+    }
+
     /* ========================================================== */
 
     @Override
@@ -153,4 +158,5 @@ public final class TwoDeadWheelLocalizer implements Localizer {
         pose = pose.plus(twist.value());
         return twist.velocity().value();
     }
+
 }
