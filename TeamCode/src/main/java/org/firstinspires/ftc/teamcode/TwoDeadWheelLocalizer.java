@@ -35,9 +35,13 @@ public final class TwoDeadWheelLocalizer implements Localizer {
 
     public static Params PARAMS = new Params();
 
+    // To be tuned
+    public static double SCALEFACTOR = 1.0;
+    public double WHEEL_RADIUS_IN = 0.985 * SCALEFACTOR; // inches
+
     private final Encoder par, perp;
     private final IMU imu;
-    private final double inPerTick;
+    private final double inPerTick = 2 * Math.PI * WHEEL_RADIUS_IN / 8192;
 
     private int lastParPos, lastPerpPos;
     private Rotation2d lastHeading;
@@ -68,7 +72,7 @@ public final class TwoDeadWheelLocalizer implements Localizer {
         this(
             hardwareMap,
             hardwareMap.get(IMU.class, "imu"),           // default imu
-            2 * Math.PI * 0.985 / 8192,                 // default inPerTick
+            inPerTick,                                   // default inPerTick
             new Pose2d(0, 0, 0)                          // default pose
         );
     }
