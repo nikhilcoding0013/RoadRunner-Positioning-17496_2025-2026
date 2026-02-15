@@ -134,7 +134,7 @@ public final class TwoDeadWheelLocalizer implements Localizer {
         Rotation2d heading = Rotation2d.exp(
                 angles.getYaw(AngleUnit.RADIANS));
 
-        double rawHeadingVel = av.zRotationRate;
+        double rawHeadingVel = av.yRotationRate;
         if (Math.abs(rawHeadingVel - lastRawHeadingVel) > Math.PI) {
             headingVelOffset -= Math.signum(rawHeadingVel) * 2 * Math.PI;
         }
