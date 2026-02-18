@@ -3,7 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.acmerobotics.roadrunner.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.acmerobotics.dashboard.config.Config;
 
+@Config
 @TeleOp(name = "TwoWheel Offset Tuner")
 public class TwoWheelOffsetTuner extends LinearOpMode {
     public static double fwdIN = 0.0;
