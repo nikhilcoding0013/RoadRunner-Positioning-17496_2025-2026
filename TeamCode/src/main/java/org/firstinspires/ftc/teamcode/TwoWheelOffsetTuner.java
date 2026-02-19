@@ -8,8 +8,8 @@ import com.acmerobotics.dashboard.config.Config;
 @Config
 @TeleOp(name = "TwoWheel Offset Tuner")
 public class TwoWheelOffsetTuner extends LinearOpMode {
-    public static double fwdIN = 0.0;
-    public static double latIN = 0.0;
+    public static double fwdIN = -4.043;
+    public static double latIN = -0.927;
     
     @Override
     public void runOpMode() throws InterruptedException {
@@ -26,10 +26,10 @@ public class TwoWheelOffsetTuner extends LinearOpMode {
         while (opModeIsActive()) {
 
             // Spin the robot
-            drive.leftFront.setPower(-0.25);
-            drive.leftBack.setPower(-0.25);
-            drive.rightFront.setPower(0.25);
-            drive.rightBack.setPower(0.25);
+            drive.leftFront.setPower(-0.35);
+            drive.leftBack.setPower(-0.35);
+            drive.rightFront.setPower(0.35);
+            drive.rightBack.setPower(0.35);
 
             drive.updatePoseEstimate();
 
@@ -60,8 +60,8 @@ public class TwoWheelOffsetTuner extends LinearOpMode {
 
         while (opModeIsActive()) {
             telemetry.addLine("=== TUNING COMPLETE ===");
-            telemtery.addLine("finalX", finalPose.position.x);
-            telemtery.addLine("finalY", finalPose.position.y);
+            telemetry.addData("finalX", finalPose.position.x);
+            telemetry.addData("finalY", finalPose.position.y);
             //telemetry.addData("lateralOffset", lateralOffsetInches);
             //telemetry.addData("forwardOffset", forwardOffsetInches);
             telemetry.update();
